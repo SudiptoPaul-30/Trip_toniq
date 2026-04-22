@@ -1,0 +1,23 @@
+/* 1. Define the path the plane follows */
+#plane {
+  offset-path: path("M 10,130 A 145,130 0 0 1 290,140");
+  opacity: 0;
+}
+
+@keyframes flyAndPark {
+  0% { 
+    offset-distance: 0%; 
+    opacity: 0; 
+  }
+  10% { 
+    opacity: 1; 
+  }
+  100% { 
+    offset-distance: 70%; 
+    opacity: 1;
+  }
+}
+
+.animate-plane {
+  animation: flyAndPark 4s ease-out forwards;
+}
