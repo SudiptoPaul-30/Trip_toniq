@@ -27,3 +27,20 @@
 
 
 
+@keyframes rocket-fly {
+    0% { offset-distance: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { offset-distance: 100%; opacity: 1; }
+  }
+
+  .animate-rocket {
+    /* This MUST match the 'd' attribute of the path above */
+    /* offset-path: path('M200,500 Q400,100 600,300 T1000,150'); */
+    offset-path: path('M800,250 C850,200 1000,150 950,100 C900,100 850,50 800,30 C750,30 500,150 450,30 L450,20');
+    animation: rocket-fly 6s ease-out forwards;
+    offset-rotate: auto;
+  }
+
+
+
