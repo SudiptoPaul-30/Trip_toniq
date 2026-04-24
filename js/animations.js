@@ -138,12 +138,84 @@ const getSwiperOptions = (container) => ({
 
 
 
+// Configuration Helper (Adjusted for Blog IDs)
+const getBlogSwiperOptions = (container) => ({
+  slidesPerView: 1,
+  spaceBetween: 24,
+  grabCursor: true,
+  navigation: {
+    nextEl: container.querySelector('.nav-next'),
+    prevEl: container.querySelector('.nav-prev'),
+  },
+  breakpoints: {
+    600: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 }
+  },
+  on: {
+    init: function () { updateBlogPagination(this); },
+    slideChange: function () { updateBlogPagination(this); },
+    resize: function () { updateBlogPagination(this); }
+  }
+});
 
+// Specific Pagination Function for Blogs
+function updateBlogPagination(swiper) {
+  const paginationContainer = document.getElementById('blog-pagination');
+  if (!paginationContainer) return;
+
+  // Calculate dots based on total slides minus those visible
+  const totalSteps = swiper.slides.length - Math.floor(swiper.params.slidesPerView) + 1;
+  const current = swiper.activeIndex;
   
+  paginationContainer.innerHTML = '';
+  // Ensure we always show at least one dot
+  for (let i = 0; i < Math.max(totalSteps, 1); i++) {
+    const line = document.createElement('div');
+    line.className = `w-10 h-1.5 rounded-full transition-all duration-300 ${i === current ? 'bg-amber-700' : 'bg-gray-300'}`;
+    paginationContainer.appendChild(line);
+  }
+}
+
+// Initialize Blog Swiper
+const blogSection = document.getElementById('blog-section');
+if (blogSection) {
+  const blogSwiper = new Swiper(".blogSwiper", getBlogSwiperOptions(blogSection));
+}
 
 
 
 
 
 
-  
+
+
+
+document.querySelectorAll('.accordion-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const currentItem = button.closest('.faq-item');
+    
+    // 1. Loop through all items to close others and reset their colors
+    document.querySelectorAll('.faq-item').forEach(item => {
+      if (item !== currentItem) {
+        item.classList.remove('active');
+        // Reset to "Closed" colors
+        item.classList.replace('border-[#AB8A5C]', 'border-[#E5E5E5]');
+        item.classList.replace('bg-[#FFF9F0]', 'bg-[#FBFBFE]');
+      }
+    });
+
+    // 2. Toggle the "active" state for the one you just clicked
+    const isActive = currentItem.classList.toggle('active');
+    
+    // 3. Update the clicked item's appearance
+    if (isActive) {
+      // Switch from "Closed" to "Open" (Active) colors
+      currentItem.classList.replace('border-[#E5E5E5]', 'border-[#AB8A5C]');
+      currentItem.classList.replace('bg-[#FBFBFE]', 'bg-[#FFF9F0]');
+    } else {
+      // Switch from "Open" back to "Closed" colors
+      currentItem.classList.replace('border-[#AB8A5C]', 'border-[#E5E5E5]');
+      currentItem.classList.replace('bg-[#FFF9F0]', 'bg-[#FBFBFE]');
+    }
+  });
+});
