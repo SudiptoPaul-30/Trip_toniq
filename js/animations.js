@@ -454,37 +454,41 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
 
-              // Heading
-              section.querySelector(".h2")?.animate(
+            // Heading(s)
+            section.querySelectorAll(".custom-h").forEach((el) => {
+            el.animate(
                 [
-                  { opacity: 0, transform: "translateY(50px)" },
-                  { opacity: 1, transform: "translateY(0)" }
+                { opacity: 0, transform: "translateY(50px)" },
+                { opacity: 1, transform: "translateY(0)" }
                 ],
                 {
-                  duration: 900,
-                  easing: "ease-out",
-                  fill: "forwards"
+                duration: 900,
+                easing: "ease-out",
+                fill: "forwards"
                 }
-              );
+            );
+            });
 
-              // Paragraph
-              section.querySelector(".p1")?.animate(
+            // Paragraph(s)
+            section.querySelectorAll(".custom-p").forEach((el) => {
+            el.animate(
                 [
-                  { opacity: 0, transform: "translateY(50px)" },
-                  { opacity: 1, transform: "translateY(0)" }
+                { opacity: 0, transform: "translateY(50px)" },
+                { opacity: 1, transform: "translateY(0)" }
                 ],
                 {
-                  duration: 900,
-                  delay: 200,
-                  easing: "ease-out",
-                  fill: "forwards"
+                duration: 900,
+                delay: 200,
+                easing: "ease-out",
+                fill: "forwards"
                 }
-              );
+            );
+            });
 
-              // Steps
-              const steps = section.querySelectorAll(".step-item");
+              // Steps-left
+              const stepsLeft = section.querySelectorAll(".step-item");
 
-              steps.forEach((step, index) => {
+              stepsLeft.forEach((step, index) => {
                 step.animate(
                   [
                     { opacity: 0, transform: "translateX(-80px)" },
@@ -513,23 +517,54 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
                 );
               });
 
-              // Buttons
-              const buttons = section.querySelectorAll("button");
+              // Steps-right
+              const stepsRight = section.querySelectorAll(".step-item-2");
 
-              buttons.forEach((btn, index) => {
-                btn.animate(
+              stepsRight.forEach((step, index) => {
+                step.animate(
                   [
-                    { opacity: 0, transform: "translateY(50px)" },
-                    { opacity: 1, transform: "translateY(0)" }
+                    { opacity: 0, transform: "translateX(80px)" },
+                    { opacity: 1, transform: "translateX(0)" }
                   ],
                   {
-                    duration: 800,
-                    delay: 800 + (index * 200),
+                    duration: 900,
+                    delay: 500 + (index * 250),
+                    easing: "cubic-bezier(0.25,1,0.5,1)",
+                    fill: "forwards"
+                  }
+                );
+
+                step.querySelector(".number")?.animate(
+                  [
+                    { opacity: 0, transform: "scale(0)" },
+                    { opacity: 1, transform: "scale(1.15)" },
+                    { opacity: 1, transform: "scale(1)" }
+                  ],
+                  {
+                    duration: 700,
+                    delay: 650 + (index * 250),
                     easing: "ease-out",
                     fill: "forwards"
                   }
                 );
               });
+
+              // Buttons && <a> tags
+                section.querySelectorAll("button, a").forEach((item, index) => {
+                item.animate(
+                    [
+                    { opacity: 0, transform: "translateY(50px)" },
+                    { opacity: 1, transform: "translateY(0)" }
+                    ],
+                    {
+                    duration: 800,
+                    // Keeps the staggered "one-by-one" appearance
+                    delay: 800 + (index * 200), 
+                    easing: "ease-out",
+                    fill: "forwards"
+                    }
+                );
+                });
 
               observer.unobserve(section);
             }
@@ -540,6 +575,7 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
 
       });
     });
+
 
 
 

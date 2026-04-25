@@ -68,7 +68,7 @@
   <header class="relative container-fluid flex flex-col bg-center bg-cover bg-no-repeat z-10"
           style="background-image: url('images/hero-bg.png');">
     
-    <div class="fixed top-0 left-0 right-0 z-[100] container bg-[#F8F7F4] p-4 md:px-6 mx-auto w-full flex justify-between items-center text-sm font-medium text-gray-600">
+    <div class="fixed top-0 left-0 right-0 z-[100] container bg-[#F8F7F4] p-4 md:px-6 mx-auto w-full flex justify-between items-center text-sm font-medium text-gray-600 rounded-2xl">
       <div class="flex gap-4 md:gap-6">
         <a href="mailto:social@triptoniq.com" class="group flex items-center text-black hover:text-[#AB8A5C] transition-all duration-300">
           <div class="p-2">
@@ -93,7 +93,7 @@
       </div>
 
       <div class="flex items-center">
-        <select class="bg-transparent border-2 py-1 border-[#FF9600] text-xs md:text-sm focus:ring-0 cursor-pointer rounded-lg">
+        <select class="bg-transparent border-2 py-1 border-[#FF9600] text-xs md:text-sm cursor-pointer rounded-lg">
           <option>Select Language</option>
           <option>English</option>
           <option>Hindi</option>
@@ -130,7 +130,7 @@
         </button>
       </div>
 
-      <div id="mobile-menu" class="hidden fixed overflow-y-auto top-full left-0 w-full bg-white rounded-2xl shadow-xl mt-2 p-6 flex-col gap-4 lg:hidden border border-[#FF9600]">
+      <div id="mobile-menu" class="hidden fixed top-full left-0 w-full bg-white rounded-2xl shadow-xl mt-2 p-6 flex-col gap-4 lg:hidden border border-[#FF9600] max-h-[75vh] overflow-y-auto">
         <ul class="flex flex-col gap-4 text-gray-800">
           <li><a href="#" class="block py-2">About Us <span class="material-symbols-outlined text-sm">expand_more</span></a></li>
           <li><a href="#" class="block py-2">Group Tours <span class="material-symbols-outlined text-sm">expand_more</span></a></li>
@@ -149,7 +149,7 @@
       </div>
     </nav>
 
-    <div class="relative flex-1 flex flex-col items-center justify-center text-center overflow-hidden py-80 px-4">
+    <div class="relative flex flex-col items-center justify-center text-center overflow-hidden py-80 px-4">
         <div class="relative z-10 animate-fade-in">
           <div class=" justify-center gap-4 flex flex-row items-center md:gap-6 text-center ">
             <h1 class="text-4xl md:text-6xl md:text-7xl font-headline font-light text-white tracking-tight">
@@ -1326,7 +1326,7 @@
   <section class="container-fluid relative py-32 pb-0 md:pb-16 px-6">
     <div class="max-w-7xl mx-auto bg-[#AB8A5C] rounded-[3rem] px-10 relative overflow-visible">
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative">
         
         <div class="order-2 md:order-1 space-y-5 py-12 pt-0 md:pt-12 flex flex-col items-center md:items-start text-center md:text-start">
           <div class="space-y-3">
@@ -1492,22 +1492,31 @@
   <!-- Scroll Up Button -->
   <button 
     id="scrollTopBtn" 
-    class="fixed bottom-8 right-8 z-50 hidden p-3 px-4 rounded-full bg-[#FE6A34] text-white shadow-2xl transition-all duration-300 hover:bg-[#112240] hover:scale-110 active:scale-95 group">
+    class="fixed bottom-8 right-8 z-50 hidden p-3 px-4 rounded-full bg-[#AB8A5C] text-white shadow-2xl transition-all duration-300 hover:bg-[#112240] hover:scale-110 active:scale-95 group">
     <span class="material-symbols-outlined text-2xl group-hover:animate-bounce">arrow_upward</span>
   </button>
 
 
   <!-- Side Whatsapp facebook linkedln -->
   <div class="fixed right-6 top-1/4 flex flex-col gap-4 z-50">
-    <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg cursor-pointer">
-        <i class="fab fa-whatsapp"></i>
-    </div>
-    <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white shadow-lg cursor-pointer">
-        <i class="fas fa-envelope"></i>
-    </div>
-    <div class="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center text-white shadow-lg cursor-pointer">
-        <i class="fas fa-phone"></i>
-    </div>
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="w-16 h-16 bg-green-500 rounded-[3rem] flex items-center justify-center text-white shadow-lg cursor-pointer transition-transform hover:scale-110">
+        <svg width="25" height="25" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.25 0C25.2249 0 32.5 7.27513 32.5 16.25C32.5 25.2249 25.2249 32.5 16.25 32.5C13.3782 32.5049 10.557 31.7449 8.07627 30.2981L0.00652511 32.5L2.20352 24.427C0.755582 21.9455 -0.00500764 19.123 2.48116e-05 16.25C2.48116e-05 7.27513 7.27515 0 16.25 0ZM10.712 8.6125L10.387 8.6255C10.1769 8.63998 9.97159 8.69517 9.78252 8.788C9.60633 8.88795 9.44544 9.01273 9.30477 9.1585C9.10977 9.34212 8.99927 9.50137 8.88065 9.65575C8.2796 10.4372 7.95598 11.3966 7.9609 12.3825C7.96415 13.1787 8.17215 13.9539 8.49715 14.6786C9.16177 16.1444 10.2554 17.6962 11.6984 19.1344C12.0461 19.4805 12.3874 19.8282 12.7546 20.1516C14.5477 21.7302 16.6844 22.8686 18.9946 23.4764L19.9177 23.6177C20.2183 23.634 20.5189 23.6112 20.8211 23.5966C21.2943 23.5717 21.7563 23.4436 22.1748 23.2213C22.3874 23.1113 22.5951 22.992 22.7971 22.8637C22.7971 22.8637 22.8659 22.8172 23.0003 22.7175C23.2197 22.555 23.3545 22.4396 23.5365 22.2495C23.673 22.1087 23.7868 21.9451 23.8778 21.7587C24.0045 21.4939 24.1313 20.9885 24.1833 20.5676C24.2223 20.2459 24.2109 20.0704 24.206 19.9615C24.1995 19.7876 24.0549 19.6072 23.8973 19.5309L22.9515 19.1067C22.9515 19.1067 21.5378 18.4909 20.6733 18.0976C20.5828 18.0582 20.4859 18.0357 20.3873 18.031C20.2761 18.0194 20.1637 18.0318 20.0577 18.0674C19.9517 18.103 19.8546 18.161 19.773 18.2374C19.7649 18.2341 19.656 18.3267 18.4811 19.7502C18.4137 19.8409 18.3208 19.9093 18.2143 19.947C18.1078 19.9846 17.9925 19.9896 17.8831 19.9615C17.7772 19.9333 17.6735 19.8974 17.5728 19.8542C17.3713 19.7697 17.3014 19.7372 17.1633 19.6787C16.2303 19.2723 15.3667 18.7224 14.6039 18.0489C14.3991 17.8701 14.209 17.6751 14.014 17.4866C13.3748 16.8743 12.8176 16.1817 12.3565 15.4261L12.2606 15.2717C12.1928 15.1674 12.1372 15.0556 12.0949 14.9386C12.0331 14.6997 12.194 14.508 12.194 14.508C12.194 14.508 12.5889 14.0757 12.7725 13.8417C12.9513 13.6142 13.1024 13.3932 13.1999 13.2356C13.3916 12.9269 13.4518 12.61 13.351 12.3646C12.896 11.2531 12.4259 10.1476 11.9405 9.048C11.8446 8.83025 11.5603 8.67425 11.3019 8.64337C11.2141 8.63254 11.1264 8.62387 11.0386 8.61737C10.8205 8.60486 10.6017 8.60703 10.3838 8.62387L10.712 8.6125Z" fill="white"/>
+        </svg>
+    </a>
+
+    <a href="mailto:example@gmail.com" class="w-16 h-16 bg-red-600 rounded-[3rem] flex items-center justify-center text-white shadow-lg cursor-pointer transition-transform hover:scale-110">
+        <svg width="25" height="22" viewBox="0 0 33 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.70846 1H30.0418C30.9814 1 31.7501 1.76875 31.7501 2.70833V23.2083C31.7501 24.1479 30.9814 24.9167 30.0418 24.9167H2.70846C1.76887 24.9167 1.00012 24.1479 1.00012 23.2083V2.70833C1.00012 1.76875 1.76887 1 2.70846 1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1.00012 3.5625L16.3751 12.9583L31.7501 3.5625" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+
+    <a href="tel:+91XXXXXXXXXX" class="w-16 h-16 bg-blue-900 rounded-[3rem] flex items-center justify-center text-white shadow-lg cursor-pointer transition-transform hover:scale-110">
+        <svg width="25" height="25" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28.0392 34.9993C26.5142 34.9993 24.372 34.4477 21.1642 32.6555C17.2634 30.468 14.2462 28.4485 10.3665 24.579C6.62592 20.8407 4.80561 18.4204 2.25795 13.7844C-0.620172 8.55006 -0.129547 5.80631 0.41889 4.63365C1.07202 3.23209 2.03608 2.39381 3.28217 1.56178C3.98994 1.09805 4.73894 0.700539 5.51967 0.374275C5.5978 0.340681 5.67045 0.30865 5.7353 0.279744C6.12201 0.105525 6.70795 -0.157756 7.45014 0.123494C7.94545 0.309431 8.38764 0.6899 9.07983 1.37349C10.4994 2.77349 12.4392 5.89146 13.1548 7.42271C13.6353 8.45474 13.9533 9.13599 13.954 9.90005C13.954 10.7946 13.504 11.4844 12.958 12.229C12.8556 12.3688 12.754 12.5024 12.6556 12.6321C12.0611 13.4133 11.9306 13.6391 12.0165 14.0422C12.1908 14.8524 13.49 17.2641 15.6251 19.3946C17.7603 21.5251 20.1025 22.7422 20.9158 22.9157C21.3361 23.0055 21.5665 22.8696 22.3728 22.254C22.4884 22.1657 22.6072 22.0743 22.7314 21.9829C23.5642 21.3633 24.222 20.9251 25.0954 20.9251H25.1001C25.8603 20.9251 26.5111 21.2547 27.5892 21.7985C28.9954 22.5079 32.2072 24.4227 33.6158 25.8438C34.3009 26.5344 34.6829 26.9751 34.8697 27.4696C35.1509 28.2141 34.8861 28.7977 34.7134 29.1883C34.6845 29.2532 34.6525 29.3243 34.6189 29.4032C34.29 30.1825 33.8902 30.9299 33.4244 31.636C32.5939 32.8782 31.7525 33.8399 30.3478 34.4938C29.6265 34.835 28.8371 35.0079 28.0392 34.9993Z" fill="white"/>
+        </svg>
+    </a>
   </div>
 
   <!-- contact us modal -->
