@@ -43,4 +43,22 @@
   }
 
 
+  .animate-card {
+    opacity: 0;
+    transform: translateY(-180px) scale(0.95);
+  }
+
+  .content-animate .h2,
+  .content-animate .p1,
+  .content-animate .step-item,
+  .content-animate button {
+    opacity: 0;
+    transform: translateY(60px);
+    will-change: transform, opacity;
+  }
+
+  .content-animate .step-item .number {
+    transform: scale(0);
+    opacity: 0;
+  }
 
