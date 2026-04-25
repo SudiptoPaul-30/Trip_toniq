@@ -212,10 +212,6 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
 
 
 
-
-
-
-
     {/* Contact Us Modal  */}
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -355,12 +351,12 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
                       { opacity: 1, transform: "translateY(0) scale(1)" }
                     ],
                     {
-                      duration: 1600,
+                      duration: 2500,
                       easing: "cubic-bezier(0.25, 1, 0.5, 1)",
                       fill: "forwards"
                     }
                   );
-                }, index * 500);
+                }, index * 300);
               });
             }
           });
@@ -388,9 +384,9 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
 
           box.animate(
             [
-              { opacity: 0, transform: "translateY(100px) scale(.8) rotate(10deg)" },
-              { opacity: 1, transform: "translateY(-18px) scale(1.03) rotate(3deg)", offset: 0.75 },
-              { opacity: 1, transform: "translateY(0) scale(1) rotate(3deg)" }
+              { opacity: 0, transform: "translateY(100px) scale(.8) rotate(0deg)" },
+              { opacity: 1, transform: "translateY(-18px) scale(1.03) rotate(0deg)", offset: 0.75 },
+              { opacity: 1, transform: "translateY(0) scale(1) rotate(0deg)" }
             ],
             {
               duration: 2500,
@@ -420,9 +416,9 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
 
           box.animate(
             [
-              { opacity: 0, transform: "scale(0.45) rotate(3deg)" },
-              { opacity: 1, transform: "scale(1.06) rotate(3deg)", offset: 0.75 },
-              { opacity: 1, transform: "scale(1) rotate(3deg)" }
+              { opacity: 0, transform: "scale(0.45) rotate(0deg)" },
+              { opacity: 1, transform: "scale(1.06) rotate(0deg)", offset: 0.75 },
+              { opacity: 1, transform: "scale(1) rotate(0deg)" }
             ],
             {
               duration: 3000,
@@ -486,7 +482,7 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
             });
 
               // Steps-left
-              const stepsLeft = section.querySelectorAll(".step-item");
+              const stepsLeft = section.querySelectorAll(".custom-item");
 
               stepsLeft.forEach((step, index) => {
                 step.animate(
@@ -502,14 +498,14 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
                   }
                 );
 
-                step.querySelector(".number")?.animate(
+                step.querySelector(".custom-icon")?.animate(
                   [
                     { opacity: 0, transform: "scale(0)" },
-                    { opacity: 1, transform: "scale(1.15)" },
+                    { opacity: 0.50, transform: "scale(1.15)" },
                     { opacity: 1, transform: "scale(1)" }
                   ],
                   {
-                    duration: 700,
+                    duration: 1000,
                     delay: 650 + (index * 250),
                     easing: "ease-out",
                     fill: "forwards"
@@ -518,7 +514,7 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
               });
 
               // Steps-right
-              const stepsRight = section.querySelectorAll(".step-item-2");
+              const stepsRight = section.querySelectorAll(".custom-item-2");
 
               stepsRight.forEach((step, index) => {
                 step.animate(
@@ -527,14 +523,14 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
                     { opacity: 1, transform: "translateX(0)" }
                   ],
                   {
-                    duration: 900,
-                    delay: 500 + (index * 250),
+                    duration: 2000,
+                    delay: 100 + (index * 250),
                     easing: "cubic-bezier(0.25,1,0.5,1)",
                     fill: "forwards"
                   }
                 );
 
-                step.querySelector(".number")?.animate(
+                step.querySelector(".custom-icon-2")?.animate(
                   [
                     { opacity: 0, transform: "scale(0)" },
                     { opacity: 1, transform: "scale(1.15)" },
@@ -580,119 +576,36 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
 
 
 
+    // SLIDER 
+document.addEventListener('DOMContentLoaded', () => {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px" 
+  };
 
-//    SLIDER 1: Committee 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const cards = entry.target.querySelectorAll('.card, .card-2');
+        
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('reveal-visible');
+          }, index * 300);
+        });
 
-  {
-    const slider = document.getElementById("slider");
-    const nextBtn = document.getElementById("nextBtn");
-    const prevBtn = document.getElementById("prevBtn");
-    let index = 0;
-
-    function getVisibleCards() {
-      const width = window.innerWidth;
-      if (width >= 1444) return 5;
-      if (width >= 1024) return 4;
-      if (width >= 768) return 3;
-      return 2;
-    }
-
-    function updateSlider() {
-      const cards = document.querySelectorAll(".card");
-      if (!slider || cards.length === 0) return;
-
-      const visible = getVisibleCards();
-      const total = cards.length;
-
-      if (index > total - visible) {
-        index = Math.max(0, total - visible);
+        observer.unobserve(entry.target);
       }
+    });
+  }, observerOptions);
 
-      const gap = 24; // gap-6
-      const cardWidth = cards[0].offsetWidth;
-      const move = (cardWidth + gap) * index;
-      slider.style.transform = `translateX(-${move}px)`;
-    }
-
-    nextBtn.onclick = () => {
-      const total = document.querySelectorAll(".card").length;
-      const visible = getVisibleCards();
-      index = (index < total - visible) ? index + 1 : 0;
-      updateSlider();
-    };
-
-    prevBtn.onclick = () => {
-      const total = document.querySelectorAll(".card").length;
-      const visible = getVisibleCards();
-      index = (index > 0) ? index - 1 : Math.max(0, total - visible);
-      updateSlider();
-    };
-
-    window.addEventListener("resize", updateSlider);
-    window.addEventListener("load", updateSlider);
-  }
-
-
-
-
-
-
-
-
-    // SLIDER 2: Success Stories Slider
-
-  {
-    const slider2 = document.getElementById("slider-2");
-    const nextBtn2 = document.getElementById("nextBtn2");
-    const prevBtn2 = document.getElementById("prevBtn2");
-    let currentIndex = 0;
-
-    function getVisibleCards2() {
-      const width = window.innerWidth;
-      if (width >= 1024) return 3;
-      if (width >= 768) return 2;
-      return 1;
-    }
-
-    function updateSlider2() {
-      const cards = document.querySelectorAll(".card-2");
-      if (!slider2 || cards.length === 0) return;
-
-      const visible = getVisibleCards2();
-      const total = cards.length;
-
-      if (currentIndex > total - visible) {
-        currentIndex = Math.max(0, total - visible);
-      }
-
-      const gap = 24; // gap-6
-      const cardWidth = cards[0].offsetWidth;
-      const move = (cardWidth + gap) * currentIndex;
-      slider2.style.transform = `translateX(-${move}px)`;
-    }
-
-    nextBtn2.onclick = () => {
-      const total = document.querySelectorAll(".card-2").length;
-      const visible = getVisibleCards2();
-      currentIndex = (currentIndex < total - visible) ? currentIndex + 1 : 0;
-      updateSlider2();
-    };
-
-    prevBtn2.onclick = () => {
-      const total = document.querySelectorAll(".card-2").length;
-      const visible = getVisibleCards2();
-      currentIndex = (currentIndex > 0) ? currentIndex - 1 : Math.max(0, total - visible);
-      updateSlider2();
-    };
-
-    window.addEventListener("resize", updateSlider2);
-    window.addEventListener("load", updateSlider2);
-  }
+  const sections = document.querySelectorAll('#destination-section, #blog-section');
+  sections.forEach(sec => observer.observe(sec));
+});
 
 
 
   // Countdown Script
-
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -740,4 +653,35 @@ document.addEventListener("DOMContentLoaded", () => {
   let timer;
   updateCountdown();
 
+});
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const observerOptions = {
+    threshold: 0.1, // Trigger when 10% of the element is visible
+    rootMargin: '0px 0px -50px 0px' 
+  };
+
+  const globalObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        
+        // Apply the Tailwind animation class based on the placeholder
+        if (el.classList.contains('reveal-left')) el.classList.add('animate-slide-left');
+        if (el.classList.contains('reveal-right')) el.classList.add('animate-slide-right');
+        if (el.classList.contains('reveal-fade')) el.classList.add('animate-fade-in');
+
+        // Stop watching this element once it has animated
+        globalObserver.unobserve(el);
+      }
+    });
+  }, observerOptions);
+
+  // Target all elements with these classes
+  const elements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-fade');
+  elements.forEach(el => globalObserver.observe(el));
 });

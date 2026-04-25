@@ -48,17 +48,102 @@
     transform: translateY(-180px) scale(0.95);
   }
 
-  .content-animate .h2,
-  .content-animate .p1,
-  .content-animate .step-item,
-  .content-animate button {
+  .content-animate .custom-h,
+  .content-animate .custom-p,
+  .content-animate .custom-item,
+  .content-animate button,
+  .content-animate a {
     opacity: 0;
     transform: translateY(60px);
     will-change: transform, opacity;
   }
 
-  .content-animate .step-item .number {
+  .content-animate .custom-item .custom-number {
     transform: scale(0);
     opacity: 0;
   }
 
+
+.animate-shadow-container {
+  overflow: hidden;
+  border-radius: 10px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.animate-shadow-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.animate-container {
+  overflow: hidden;
+  border-radius: 10px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.animate-container:hover {
+  transform: translateY(-5px);
+}
+
+.animate-img {
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animate-img:hover {
+  transform: scale(1.05) translateY(-8px);
+}
+
+
+
+
+/* Reveal from LEFT to RIGHT */
+.card {
+  opacity: 0;
+  transform: translateX(-100px); /* Starts on the left */
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+}
+
+/* Reveal from RIGHT to LEFT */
+.card-2 {
+  opacity: 0;
+  transform: translateX(100px); /* Starts on the right */
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+}
+
+/* Common end state for both */
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* Pop-up Hover Effect (Shared) */
+.card:hover, .card-2:hover {
+  transform: translateY(-20px) scale(1.02) !important;
+  z-index: 50;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+/* Base classes to hide elements initially */
+.reveal-left, 
+.reveal-right, 
+.reveal-fade {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Fallback: if JS is disabled, show them anyway */
+.no-js .reveal-left, 
+.no-js .reveal-right, 
+.no-js .reveal-fade {
+  opacity: 1;
+}
