@@ -658,10 +658,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// animate-slide-left & animate-slide-right and fade in effect
 
 document.addEventListener('DOMContentLoaded', () => {
   const observerOptions = {
-    threshold: 0.1, // Trigger when 10% of the element is visible
+    threshold: 0.1,
     rootMargin: '0px 0px -50px 0px' 
   };
 
@@ -670,18 +671,45 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         const el = entry.target;
         
-        // Apply the Tailwind animation class based on the placeholder
         if (el.classList.contains('reveal-left')) el.classList.add('animate-slide-left');
         if (el.classList.contains('reveal-right')) el.classList.add('animate-slide-right');
         if (el.classList.contains('reveal-fade')) el.classList.add('animate-fade-in');
 
-        // Stop watching this element once it has animated
         globalObserver.unobserve(el);
       }
     });
   }, observerOptions);
 
-  // Target all elements with these classes
   const elements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-fade');
   elements.forEach(el => globalObserver.observe(el));
+});
+
+
+
+
+
+
+// animate-arrow-moving
+
+document.addEventListener("DOMContentLoaded", () => {
+  const observerOptions = {
+    root: null, 
+    threshold: 0.2
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const arrow = entry.target.querySelector('[class*="moving-arrow"]');
+        if (arrow) {
+          arrow.classList.add('animate-now');
+          observer.unobserve(entry.target);
+        }
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.path-container').forEach(container => {
+    observer.observe(container);
+  });
 });
