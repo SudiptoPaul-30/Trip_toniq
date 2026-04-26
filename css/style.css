@@ -373,7 +373,7 @@ body {
 .reveal-left, 
 .reveal-right, 
 .reveal-fade {
-  opacity: 0;
+  opacity: 1;
   will-change: transform, opacity;
 }
 
