@@ -240,8 +240,8 @@
 .travel-container-reverse {
   position: relative;
   width: 90%;
-  max-width: 900px;
-  aspect-ratio: 900 / 127;
+  max-width: 1051px;
+  aspect-ratio: 1051 / 127;
   margin: 0 auto;
 }
 
