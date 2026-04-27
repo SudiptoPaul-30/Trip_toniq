@@ -10,7 +10,6 @@ body {
   offset-rotate: auto;
   transform-box: fill-box;
   transform-origin: center;
-  
   animation: flyContinuous 4s linear infinite;
 }
 
@@ -115,14 +114,25 @@ body {
 
 
 /* CTA Section */
-.path-container.section-two.section-three {
+.path-container.section-three {
+  max-width: 450px;
+  aspect-ratio: 450 / 180;
   position: absolute;
   left: 100px;
-  bottom: 100px;}
+  bottom: 100px;
+}
 
-
-.moving-arrow-two.moving-arrow-three {
+.moving-arrow-three {
+  offset-path: path("M670.282 309.838C625.532 302.273 535.275 270.143 532.251 202.139C529.227 134.134 574.659 105.285 597.753 99.3605C622.022 94.4554 670.03 98.6079 667.906 154.458C667.175 159.75 662.314 170.827 648.72 172.801C631.728 175.269 595.565 201.378 462.174 100.805C420.025 56.9577 324.944 -13.3268 281.805 56.3157C238.667 125.958 172.192 165.639 144.346 176.775C93.5216 200.326 -6.34687 197.946 0.777273 0.0178699");
   offset-rotate: auto 360deg;
+  animation: travelPathThree 6s ease-in-out forwards;
+}
+
+
+@keyframes travelPathThree {
+  0% { offset-distance: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 1; }
 }
 
 
@@ -163,8 +173,8 @@ body {
 .moving-arrow, 
 .moving-arrow-two, 
 .moving-arrow-reverse {
-  animation: travelPath 8s ease-in-out forwards;
-  animation-play-state: paused; /* Start paused */
+  animation: travelPath 6s ease-in-out forwards;
+  animation-play-state: paused;
 }
 
 .animate-now {
