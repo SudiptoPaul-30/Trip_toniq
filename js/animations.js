@@ -1,3 +1,20 @@
+//Navbar set on top
+
+const nav = document.getElementById('main-nav');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      nav.classList.remove('top-16');
+      nav.classList.add('top-0');
+    } else {
+      nav.classList.remove('top-0');
+      nav.classList.add('top-16');
+    }
+  });
+
+
+
+
 // plane animation hero section
 
 const plane = document.getElementById('plane');
