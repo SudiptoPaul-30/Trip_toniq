@@ -3,23 +3,96 @@
 const plane = document.getElementById('plane');
 const triggerZone = document.getElementById('trigger-zone');
 
-const playFlight = () => {
-  plane.style.animation = 'none';
-  plane.offsetHeight;
-  plane.style.animation = 'flyAndPark 3s ease-out forwards';
-};
+if (plane && triggerZone) {
+    const playFlight = () => {
+        plane.style.animation = 'none';
+        plane.offsetHeight; // trigger reflow
+        plane.style.animation = 'flyAndPark 3s ease-out forwards';
+    };
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      playFlight();
-    }
-  });
-}, { threshold: 0.5 });
+    const planeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                playFlight();
+            }
+        });
+    }, { threshold: 0.5 });
 
-observer.observe(triggerZone);
+    planeObserver.observe(triggerZone);
+    triggerZone.addEventListener('mouseenter', playFlight);
+}
 
-triggerZone.addEventListener('mouseenter', playFlight);
+
+
+
+
+
+
+// 2. UNIVERSAL CONTENT ANIMATION
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".content-animate, .reveal-left, .reveal-right, .reveal-fade");
+
+    sections.forEach(section => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    
+                    // A. Handle 'content-animate' sections
+                    if (section.classList.contains('content-animate')) {
+                        // Heading(s)
+                        section.querySelectorAll(".custom-h").forEach((el) => {
+                            el.animate(
+                                [{ opacity: 0, transform: "translateY(50px)" }, { opacity: 1, transform: "translateY(0)" }],
+                                { duration: 900, easing: "ease-out", fill: "forwards" }
+                            );
+                        });
+
+                        // Paragraph(s)
+                        section.querySelectorAll(".custom-p").forEach((el) => {
+                            el.animate(
+                                [{ opacity: 0, transform: "translateY(50px)" }, { opacity: 1, transform: "translateY(0)" }],
+                                { duration: 900, delay: 200, easing: "ease-out", fill: "forwards" }
+                            );
+                        });
+
+                        // Items Left
+                        section.querySelectorAll(".custom-item").forEach((step, index) => {
+                            step.animate(
+                                [{ opacity: 0, transform: "translateX(-80px)" }, { opacity: 1, transform: "translateX(0)" }],
+                                { duration: 900, delay: 500 + (index * 250), easing: "cubic-bezier(0.25,1,0.5,1)", fill: "forwards" }
+                            );
+                        });
+
+                        // Items Right
+                        section.querySelectorAll(".custom-item-2").forEach((step, index) => {
+                            step.animate(
+                                [{ opacity: 0, transform: "translateX(80px)" }, { opacity: 1, transform: "translateX(0)" }],
+                                { duration: 2000, delay: 100 + (index * 250), easing: "cubic-bezier(0.25,1,0.5,1)", fill: "forwards" }
+                            );
+                        });
+
+                        // Buttons & Links
+                        section.querySelectorAll("button, a").forEach((item, index) => {
+                            item.animate(
+                                [{ opacity: 0, transform: "translateY(50px)" }, { opacity: 1, transform: "translateY(0)" }],
+                                { duration: 800, delay: 800 + (index * 200), easing: "ease-out", fill: "forwards" }
+                            );
+                        });
+                    }
+
+                    // B. Handle legacy 'reveal' classes (if still in use in style.css)
+                    if (section.classList.contains('reveal-left')) section.classList.add('animate-slide-left');
+                    if (section.classList.contains('reveal-right')) section.classList.add('animate-slide-right');
+                    if (section.classList.contains('reveal-fade')) section.classList.add('animate-fade-in');
+
+                    observer.unobserve(section);
+                }
+            });
+        }, { threshold: 0.2 }); // Slightly lower threshold for better mobile trigger
+
+        observer.observe(section);
+    });
+});
 
 
 
@@ -436,141 +509,6 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
 
 
 
-
-
-
-    // Text content animation
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const sections = document.querySelectorAll(".content-animate");
-
-      sections.forEach(section => {
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-
-            // Heading(s)
-            section.querySelectorAll(".custom-h").forEach((el) => {
-            el.animate(
-                [
-                { opacity: 0, transform: "translateY(50px)" },
-                { opacity: 1, transform: "translateY(0)" }
-                ],
-                {
-                duration: 900,
-                easing: "ease-out",
-                fill: "forwards"
-                }
-            );
-            });
-
-            // Paragraph(s)
-            section.querySelectorAll(".custom-p").forEach((el) => {
-            el.animate(
-                [
-                { opacity: 0, transform: "translateY(50px)" },
-                { opacity: 1, transform: "translateY(0)" }
-                ],
-                {
-                duration: 900,
-                delay: 200,
-                easing: "ease-out",
-                fill: "forwards"
-                }
-            );
-            });
-
-              // Steps-left
-              const stepsLeft = section.querySelectorAll(".custom-item");
-
-              stepsLeft.forEach((step, index) => {
-                step.animate(
-                  [
-                    { opacity: 0, transform: "translateX(-80px)" },
-                    { opacity: 1, transform: "translateX(0)" }
-                  ],
-                  {
-                    duration: 900,
-                    delay: 500 + (index * 250),
-                    easing: "cubic-bezier(0.25,1,0.5,1)",
-                    fill: "forwards"
-                  }
-                );
-
-                step.querySelector(".custom-icon")?.animate(
-                  [
-                    { opacity: 0, transform: "scale(0)" },
-                    { opacity: 0.50, transform: "scale(1.15)" },
-                    { opacity: 1, transform: "scale(1)" }
-                  ],
-                  {
-                    duration: 1000,
-                    delay: 650 + (index * 250),
-                    easing: "ease-out",
-                    fill: "forwards"
-                  }
-                );
-              });
-
-              // Steps-right
-              const stepsRight = section.querySelectorAll(".custom-item-2");
-
-              stepsRight.forEach((step, index) => {
-                step.animate(
-                  [
-                    { opacity: 0, transform: "translateX(80px)" },
-                    { opacity: 1, transform: "translateX(0)" }
-                  ],
-                  {
-                    duration: 2000,
-                    delay: 100 + (index * 250),
-                    easing: "cubic-bezier(0.25,1,0.5,1)",
-                    fill: "forwards"
-                  }
-                );
-
-                step.querySelector(".custom-icon-2")?.animate(
-                  [
-                    { opacity: 0, transform: "scale(0)" },
-                    { opacity: 1, transform: "scale(1.15)" },
-                    { opacity: 1, transform: "scale(1)" }
-                  ],
-                  {
-                    duration: 700,
-                    delay: 650 + (index * 250),
-                    easing: "ease-out",
-                    fill: "forwards"
-                  }
-                );
-              });
-
-              // Buttons && <a> tags
-                section.querySelectorAll("button, a").forEach((item, index) => {
-                item.animate(
-                    [
-                    { opacity: 0, transform: "translateY(50px)" },
-                    { opacity: 1, transform: "translateY(0)" }
-                    ],
-                    {
-                    duration: 800,
-                    // Keeps the staggered "one-by-one" appearance
-                    delay: 800 + (index * 200), 
-                    easing: "ease-out",
-                    fill: "forwards"
-                    }
-                );
-                });
-
-              observer.unobserve(section);
-            }
-          });
-        }, { threshold: 0.3 });
-
-        observer.observe(section);
-
-      });
-    });
 
 
 
