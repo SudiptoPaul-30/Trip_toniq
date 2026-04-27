@@ -1,3 +1,11 @@
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+
+
+
 /* 1. Define the path the plane follows */
 #plane {
   offset-path: path("M 10,130 A 145,130 0 0 1 290,140");
@@ -170,6 +178,8 @@
 
 
 
+
+
 /* 1. Infinite Moving Dashed Line */
 .moving-dashed-path {
   stroke-dasharray: 20 20;
@@ -184,9 +194,9 @@
 /* 2. Responsive Container */
 .travel-container {
   position: relative;
-  width: 90%;
-  max-width: 900px;
-  aspect-ratio: 900 / 127;
+  width: 100%;
+  max-width: 1051px;
+  aspect-ratio: 1051 / 127;
   margin: 0 auto;
 }
 
@@ -225,6 +235,8 @@
 
 
 
+
+
 /* 1. Moving Dashed Line (Stays the same, but you can change direction if you like) */
 .moving-dashed-path-reverse {
   stroke-dasharray: 20 20;
@@ -239,7 +251,7 @@
 /* 2. Responsive Container for Reverse Section */
 .travel-container-reverse {
   position: relative;
-  width: 90%;
+  width: 100%;
   max-width: 1051px;
   aspect-ratio: 1051 / 127;
   margin: 0 auto;
@@ -272,10 +284,15 @@
 
 
 
-body {
-    overflow-x: hidden;
-    width: 100%;
-}
+
+
+
+
+
+
+
+
+
 
 
 
