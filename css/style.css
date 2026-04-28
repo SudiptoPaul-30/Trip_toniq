@@ -44,6 +44,8 @@ body {
   aspect-ratio: 1133 / 398;
   pointer-events: none;
   overflow: visible !important;
+  stroke-dasharray: 20 20;
+  animation: lineFlow 1s linear infinite;
 }
 
 .path-container svg {
