@@ -327,7 +327,7 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
     });
   });
 
-  
+
 
 
     {/* Contact Us Modal  */}
@@ -589,56 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // Countdown Script
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const targetDate = new Date(2026, 3, 24, 18, 30, 0); // April 25 2026
-
-  const els = {
-    days: document.getElementById("days"),
-    hours: document.getElementById("hours"),
-    minutes: document.getElementById("minutes"),
-    seconds: document.getElementById("seconds")
-  };
-
-  function format(num) {
-    return num < 10 ? "0" + num : String(num);
-  }
-
-  function updateCountdown() {
-    const now = new Date();
-    let diff = Math.floor((targetDate - now) / 1000);
-
-    if (diff <= 0) {
-      diff = 0;
-      clearTimeout(timer);
-    }
-
-    const days = Math.floor(diff / 86400);
-    diff %= 86400;
-
-    const hours = Math.floor(diff / 3600);
-    diff %= 3600;
-
-    const minutes = Math.floor(diff / 60);
-    const seconds = diff % 60;
-
-    els.days.innerHTML = format(days);
-    els.hours.innerHTML = format(hours);
-    els.minutes.innerHTML = format(minutes);
-    els.seconds.innerHTML = format(seconds);
-
-    // next update exactly every second
-    const delay = 1000 - (Date.now() % 1000);
-    timer = setTimeout(updateCountdown, delay);
-  }
-
-  let timer;
-  updateCountdown();
-
-});
-
+ 
 
 
 
