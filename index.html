@@ -1726,26 +1726,5 @@
 
   <script src="js/animations.js" defer></script>
 
-  <!-- Faqs Button Logic -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const toggleBtn = document.getElementById("faq-toggle-btn");
-      const extraFaqs = document.getElementById("extra-faqs");
-      const btnText = document.getElementById("btn-text");
-      const btnIcon = document.getElementById("btn-icon");
-
-      toggleBtn.addEventListener("click", function () {
-        extraFaqs.classList.toggle("hidden");
-
-        if (extraFaqs.classList.contains("hidden")) {
-          btnText.textContent = "View More FAQ";
-          btnIcon.style.transform = "rotate(45deg)";
-        } else {
-          btnText.textContent = "View Less FAQ";
-          btnIcon.style.transform = "rotate(225deg)";
-        }
-      });
-    });
-</script>
 </body>
 </html>

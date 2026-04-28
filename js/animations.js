@@ -11,7 +11,7 @@ const nav = document.getElementById('main-nav');
       nav.classList.add('top-16');
     }
   });
-
+  
 
 
 
@@ -169,6 +169,9 @@ const getSwiperOptions = (container) => ({
   }
 });
 
+
+
+
 // button sithch logic
   const domesticContainer = document.getElementById('domestic-section');
   let domesticSwiper = new Swiper(".domesticSwiper", getSwiperOptions(domesticContainer));
@@ -187,6 +190,9 @@ const getSwiperOptions = (container) => ({
       paginationContainer.appendChild(line);
     }
   }
+
+
+
 
   // Tab Switching Logic
   const buttons = document.querySelectorAll('.tab-btn');
@@ -300,6 +306,28 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
 
 
 
+
+  // Faqs Button Logic
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("faq-toggle-btn");
+    const extraFaqs = document.getElementById("extra-faqs");
+    const btnText = document.getElementById("btn-text");
+    const btnIcon = document.getElementById("btn-icon");
+
+    toggleBtn.addEventListener("click", function () {
+      extraFaqs.classList.toggle("hidden");
+
+      if (extraFaqs.classList.contains("hidden")) {
+        btnText.textContent = "View More FAQ";
+        btnIcon.style.transform = "rotate(45deg)";
+      } else {
+        btnText.textContent = "View Less FAQ";
+        btnIcon.style.transform = "rotate(225deg)";
+      }
+    });
+  });
+
+  
 
 
     {/* Contact Us Modal  */}
