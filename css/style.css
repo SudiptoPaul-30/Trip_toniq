@@ -203,10 +203,8 @@ body {
 
 .travel-container {
   position: relative;
-  width: 100%;
-  max-width: 1051px;
-  aspect-ratio: 1051 / 127;
-  margin: 0 auto;
+  width: 1051px;
+  height: 127px; 
 }
 
 
@@ -256,12 +254,9 @@ body {
 
 .travel-container-reverse {
   position: relative;
-  width: 100%;
-  max-width: 1051px;
-  aspect-ratio: 1051 / 127;
-  margin: 0 auto;
+  width: 1051px;
+  height: 127px; 
 }
-
 
 .travel-icon-reverse {
   position: absolute;
@@ -281,15 +276,6 @@ body {
 .travel-icon-reverse svg {
   transform: translateY(-5px); 
 }
-
-
-
-
-
-
-
-
-
 
 
 

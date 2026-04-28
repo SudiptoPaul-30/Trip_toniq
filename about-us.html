@@ -6,9 +6,8 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Trip Toniq || About Us</title>
-  <link rel="icon" type="image/svg+xml" href="images/fav-icon.png" />
+  <link rel="icon" href="images/fav-icon.png" sizes="64x64" type="image/png">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link rel="icon" type="image/svg+xml" href="images/logo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Abel:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -70,11 +69,11 @@
       <img src="images/hero_logo.png" alt="TRIPTONIQ" class="h-12 lg:h-16">
     </div>
     
-    <button class="lg:hidden text-gray-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+    <button class="min-[1280px]:hidden text-gray-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
       <span class="material-symbols-outlined">menu</span>
     </button>
 
-    <ul class="hidden lg:flex items-center gap-6 xl:gap-8 text-gray-800">
+    <ul class="hidden min-[1280px]:flex items-center gap-6 xl:gap-8 text-gray-800">
       <li><a href="index.html" class="hover:text-[#FF9600]">Home</a></li>
 
       <li class="relative group py-4">
@@ -107,7 +106,7 @@
       <li><a href="#" class="hover:text-[#FF9600]">Contact Us</a></li>
     </ul>
 
-    <div class="hidden lg:flex gap-3">
+    <div class="hidden min-[1280px]:flex gap-3">
       <button class="px-4 xl:px-6 py-2 border border-gray-300 rounded-xl font-bold hover:bg-gray-50 flex items-center gap-2 transition-all">
         Sign In <span class="material-symbols-outlined text-sm rotate-[-45deg]">arrow_forward</span>
       </button>
@@ -116,7 +115,7 @@
       </button>
     </div>
 
-    <div id="mobile-menu" class="hidden fixed top-full left-0 w-full bg-white rounded-2xl shadow-xl mt-2 p-6 flex-col gap-4 lg:hidden border border-[#FF9600] max-h-[75vh] overflow-y-auto">
+    <div id="mobile-menu" class="hidden min-[1280px]:hidden fixed top-full left-0 w-full bg-white rounded-2xl shadow-xl mt-2 p-6 flex-col gap-4 border border-[#FF9600] max-h-[75vh] overflow-y-auto">
       <ul class="flex flex-col gap-4 text-gray-800">
         <li><a href="index.html" class="block py-2">Home</a></li>
         <li><a href="about-us.html" class="block py-2">About Us <span class="material-symbols-outlined text-sm">expand_more</span></a></li>
@@ -140,7 +139,7 @@
   <header class="relative container-fluid flex flex-col bg-no-repeat bg-center z-10"
           style="background-image: url('images/about-us/hero-bg.png'); height: 710px;">
     
-    <div class="container p-4 md:px-6 mx-auto w-full flex justify-between items-center text-sm font-medium text-gray-600 rounded-2xl">
+    <div class="container p-4 md:px-6 md:pe-0 mx-auto w-full flex justify-between items-center text-sm font-medium text-gray-600 rounded-2xl">
       <div class="flex gap-4 md:gap-6">
         <a href="mailto:social@triptoniq.com" class="group flex items-center text-black hover:text-[#AB8A5C] transition-all duration-300">
           <div class="p-2">
@@ -387,10 +386,11 @@
           </div>
 
           <div class="reveal-left content-animate flex flex-col items-center lg:items-start lg:pl-10">
-            <h5 class="custom-h mb-6 text-xl font-semibold tracking-wider">Sitemaps</h5>
+            <h5 class="custom-h mb-6 text-xl font-semibold tracking-wider">Quick Links</h5>
             <ul class="custom-item space-y-3 text-lg opacity-90 text-center lg:text-left">
-              <li><a href="#" class="hover:text-amber-700 flex items-center justify-center lg:justify-start gap-2 group">About Us <span class="text-[10px] group-hover:translate-y-1 transition-transform">▼</span></a></li>
-              <li><a href="#" class="hover:text-amber-700 flex items-center justify-center lg:justify-start gap-2 group">Group Tours <span class="text-[10px] group-hover:translate-y-1 transition-transform">▼</span></a></li>
+              <li><a href="index.html" class="hover:text-amber-700 transition-colors">Home</a></li>
+              <li><a href="#" class="hover:text-amber-700 transition-colors">About Us</a></li>
+              <li><a href="#" class="hover:text-amber-700 transition-colors">Group Tours</a></li>
               <li><a href="#" class="hover:text-amber-700 transition-colors">Help Us Book a tour</a></li>
               <li><a href="#" class="hover:text-amber-700 transition-colors">Hot deals</a></li>
               <li><a href="#" class="hover:text-amber-700 transition-colors">FAQ</a></li>
@@ -673,6 +673,28 @@
 
         observer.observe(section);
 
+      });
+    });
+  </script>
+
+
+  <script>
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollTopBtn.classList.remove('hidden');
+        scrollTopBtn.classList.add('flex');
+      } else {
+        scrollTopBtn.classList.add('hidden');
+        scrollTopBtn.classList.remove('flex');
+      }
+    };
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
       });
     });
   </script>
