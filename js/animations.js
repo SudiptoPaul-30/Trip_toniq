@@ -15,6 +15,32 @@ const nav = document.getElementById('main-nav');
 
 
 
+  
+  // Scroll up Button
+
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+  window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollTopBtn.classList.remove('hidden');
+      scrollTopBtn.classList.add('flex');
+    } else {
+      scrollTopBtn.classList.add('hidden');
+      scrollTopBtn.classList.remove('flex');
+    }
+  };
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+
+
+
+
 // plane animation hero section
 
 const plane = document.getElementById('plane');
@@ -417,30 +443,6 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
   });
 
 
-
-
-
-
-    // Scroll up Button
-
-  const scrollTopBtn = document.getElementById('scrollTopBtn');
-
-  window.onscroll = function() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      scrollTopBtn.classList.remove('hidden');
-      scrollTopBtn.classList.add('flex');
-    } else {
-      scrollTopBtn.classList.add('hidden');
-      scrollTopBtn.classList.remove('flex');
-    }
-  };
-
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
 
 
 
