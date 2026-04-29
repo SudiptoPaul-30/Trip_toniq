@@ -60,6 +60,32 @@
       },
     };
   </script>
+  <style>
+    .year-btn {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .year-btn.active {
+        background-color: #FFF9E3 !important;
+        color: #AC8B5C !important;
+        font-weight: 600;
+    }
+
+    .year-btn.active::after {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;  
+        height: 4px;
+        background-color: #AC8B5C;
+        border-radius: 2px;
+    }
+    </style>
 </head>
 
 <body class="bg-[#F8F7F4] text-on-surface font-body antialiased">
@@ -176,95 +202,17 @@
         <p class="custom-p text-2xl md:text-4xl text-white font-medium mb-2">
             Home 
             <span class="material-symbols-outlined align-middle text-4xl">chevron_right</span> 
-            About Us
+            Gallery
         </p>
         <h1 class="custom-h text-4xl md:text-6xl md:text-7xl font-headline font-light text-white tracking-tight">
-            Meet The Team
+            Gallery
         </h1>
     </div>
 
   </header>
 
 
-<section class="container-fluid">
-  <div class="container space-y-12 my-16 reveal-left mx-auto">
-    <div class="mb-12 content-animate flex flex-col items-center">
-      <div class="w-32 h-1 bg-[#AB8A5C] mb-6 rounded"></div>
-      <h2 class="custom-h text-5xl font-light text-gray-900 leading-[1.1] tracking-tight">
-        Meet The Team
-      </h2>
-    </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
-
-      <div class="pb-5 border border-[#AB8A5C] rounded-[2.5rem] bg-[#F4DBB7] hover:shadow-xl transition-shadow duration-300 flex flex-col animate-shadow-container content-animate mx-auto">
-        <div class="mb-4 text-amber-800 text-4xl custom-item">
-        <img src="images/blog.png" alt="meet the team">
-        </div>
-        <h3 class="ps-4 text-3xl text-gray-900 mb-2 custom-h">Sanya Kapoor</h3>
-        <h5 class="ps-4 text-xl text-gray-900 mb-2 custom-h">Travel Planer</h5>
-        <p class="ps-4 text-gray-900 text-md custom-p">
-          Sanya designs itineraries that are balanced and thoughtful.
-        </p>
-      </div>
-
-      <div class="pb-5 border border-[#AB8A5C] rounded-[2.5rem] bg-[#F4DBB7] hover:shadow-xl transition-shadow duration-300 flex flex-col animate-shadow-container content-animate mx-auto">
-        <div class="mb-4 text-amber-800 text-4xl custom-item">
-        <img src="images/blog.png" alt="meet the team">
-        </div>
-        <h3 class="ps-4 text-3xl text-gray-900 mb-2 custom-h">Sanya Kapoor</h3>
-        <h5 class="ps-4 text-xl text-gray-900 mb-2 custom-h">Travel Planer</h5>
-        <p class="ps-4 text-gray-900 text-md custom-p">
-          Sanya designs itineraries that are balanced and thoughtful.
-        </p>
-      </div>
-
-      <div class="pb-5 border border-[#AB8A5C] rounded-[2.5rem] bg-[#F4DBB7] hover:shadow-xl transition-shadow duration-300 flex flex-col animate-shadow-container content-animate mx-auto">
-        <div class="mb-4 text-amber-800 text-4xl custom-item">
-            <img src="images/blog.png" alt="meet the team">
-        </div>
-        <h3 class="ps-4 text-3xl text-gray-900 mb-2 custom-h">Sanya Kapoor</h3>
-        <h5 class="ps-4 text-xl text-gray-900 mb-2 custom-h">Travel Planer</h5>
-        <p class="ps-4 text-gray-900 text-md custom-p">
-          Sanya designs itineraries that are balanced and thoughtful.
-        </p>
-      </div>
-
-      <div class="pb-5 border border-[#AB8A5C] rounded-[2.5rem] bg-[#F4DBB7] hover:shadow-xl transition-shadow duration-300 flex flex-col animate-shadow-container content-animate mx-auto">
-        <div class="mb-4 text-amber-800 text-4xl custom-item">
-            <img src="images/blog.png" alt="meet the team">
-        </div>
-        <h3 class="ps-4 text-3xl text-gray-900 mb-2 custom-h">Sanya Kapoor</h3>
-        <h5 class="ps-4 text-xl text-gray-900 mb-2 custom-h">Travel Planer</h5>
-        <p class="ps-4 text-gray-900 text-md custom-p">
-          Sanya designs itineraries that are balanced and thoughtful.
-        </p>
-      </div>
-
-      <div class="pb-5 border border-[#AB8A5C] rounded-[2.5rem] bg-[#F4DBB7] hover:shadow-xl transition-shadow duration-300 flex flex-col animate-shadow-container content-animate mx-auto">
-        <div class="mb-4 text-amber-800 text-4xl custom-item">
-            <img src="images/blog.png" alt="meet the team">
-        </div>
-        <h3 class="ps-4 text-3xl text-gray-900 mb-2 custom-h">Sanya Kapoor</h3>
-        <h5 class="ps-4 text-xl text-gray-900 mb-2 custom-h">Travel Planer</h5>
-        <p class="ps-4 text-gray-900 text-md custom-p">
-          Sanya designs itineraries that are balanced and thoughtful.
-        </p>
-      </div>
-
-      <div class="pb-5 border border-[#AB8A5C] rounded-[2.5rem] bg-[#F4DBB7] hover:shadow-xl transition-shadow duration-300 flex flex-col animate-shadow-container content-animate mx-auto">
-        <div class="mb-4 text-amber-800 text-4xl custom-item">
-        <img src="images/blog.png" alt="meet the team">
-        </div>
-        <h3 class="ps-4 text-3xl text-gray-900 mb-2 custom-h">Sanya Kapoor</h3>
-        <h5 class="ps-4 text-xl text-gray-900 mb-2 custom-h">Travel Planer</h5>
-        <p class="ps-4 text-gray-900 text-md custom-p">
-          Sanya designs itineraries that are balanced and thoughtful.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 
@@ -501,5 +449,7 @@
   </div>
 
     <script src="js/animations.js" defer></script>
+
+
 </body>
 </html>

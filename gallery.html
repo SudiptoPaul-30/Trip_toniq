@@ -85,26 +85,6 @@
         background-color: #AC8B5C;
         border-radius: 2px;
     }
-
-    .reveal-up {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease-out;
-    }
-
-    .reveal-up.animate-now {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .gallery-card {
-        transition: all 0.4s ease;
-    }
-
-    .gallery-card:hover {
-        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-        transform: translateY(-5px);
-    }
     </style>
 </head>
 
@@ -148,7 +128,7 @@
       <li><a href="#" class="hover:text-[#FF9600]">Hot Deals</a></li>
       <li><a href="#" class="hover:text-[#FF9600]">FAQ</a></li>
       <li><a href="gallery.html" class="hover:text-[#FF9600]">Gallery</a></li>
-      <li><a href="#" class="hover:text-[#FF9600]">Blog</a></li>
+      <li><a href="blog.html" class="hover:text-[#FF9600]">Blog</a></li>
       <li><a href="#" class="hover:text-[#FF9600]">Contact Us</a></li>
     </ul>
 
@@ -245,7 +225,7 @@
             </h2>
         </div>
 
-        <div class="flex justify-center reveal-up ">
+        <div class="flex justify-center ">
             <div class="inline-flex items-center bg-[#AC8B5C] p-1 rounded-2xl shadow-lg w-full container">
                 <button class="year-btn active flex-1 px-6 py-3 rounded-xl text-lg transition-all" data-year="2023">
                     2023
@@ -266,47 +246,47 @@
         </div>
 
         <div class="grid grid-cols-12 gap-6 items-stretch ">
-            <div class="col-span-12 sm:col-span-6 lg:col-span-4 reveal-up div-big-animate">
+            <div class="col-span-12 sm:col-span-6 lg:col-span-4 div-big-animate">
                 <img src="images/Gallery/Frame.png" alt="Photo" class=" mx-auto sm:w-full h-full animate-img">
             </div>
 
-            <div class="col-span-12 sm:col-span-6 lg:col-span-4 reveal-up div-big-animate">
+            <div class="col-span-12 sm:col-span-6 lg:col-span-4 div-big-animate">
                 <img src="images/Gallery/Frame-1.png" alt="Photo" class=" mx-auto sm:w-full h-full animate-img">
             </div>
 
-            <div class="col-span-12 lg:col-span-4 reveal-up div-big-animate">
+            <div class="col-span-12 lg:col-span-4 div-big-animate">
                 <img src="images/Gallery/Frame-2.png" alt="Photo" class="mx-auto lg:w-full lg:h-full animate-img">
             </div>
         </div>
 
         <div class="grid grid-cols-12 gap-6 items-stretch">
-            <div class="order-1 col-span-12 sm:col-span-6 lg:col-span-3 reveal-up div-big-animate">
+            <div class="order-1 col-span-12 sm:col-span-6 lg:col-span-3 div-big-animate">
                 <img src="images/Gallery/Frame-3.png" alt="Photo" class="mx-auto h-full animate-img">
             </div>
 
-            <div class="order-3 sm:order-3 lg:order-2 col-span-12 sm:col-span-12 lg:col-span-6 reveal-up div-big-animate">
+            <div class="order-3 sm:order-3 lg:order-2 col-span-12 sm:col-span-12 lg:col-span-6 div-big-animate">
                 <img src="images/Gallery/Frame-4.png" alt="Photo" class=" w-full animate-img">
             </div>
 
-            <div class="order-2 sm:order-2 lg:order-3 col-span-12 sm:col-span-6 lg:col-span-3 reveal-up div-big-animate">
+            <div class="order-2 sm:order-2 lg:order-3 col-span-12 sm:col-span-6 lg:col-span-3 div-big-animate">
                 <img src="images/Gallery/Frame-5.png" alt="Photo" class=" mx-auto h-full animate-img">
             </div>
         </div>
         
         <div class="grid grid-cols-12 gap-6 items-stretch">
-            <div class="col-span-12 sm:col-span-6 lg:col-span-4 gallery-card reveal-up div-big-animate">
+            <div class="col-span-12 sm:col-span-6 lg:col-span-4 gallery-card div-big-animate">
                 <img src="images/Gallery/Frame-6.png" alt="Photo" class="mx-auto sm:w-full h-full animate-img">
             </div>
-            <div class="col-span-12 sm:col-span-6 lg:col-span-4 gallery-card reveal-up div-big-animate">
+            <div class="col-span-12 sm:col-span-6 lg:col-span-4 gallery-card div-big-animate">
                 <img src="images/Gallery/Frame-7.png" alt="Photo" class="mx-auto sm:w-full h-full animate-img">
             </div>
-            <div class="col-span-12 lg:col-span-4 gallery-card reveal-up div-big-animate">
+            <div class="col-span-12 lg:col-span-4 gallery-card div-big-animate">
                 <img src="images/Gallery/Frame-8.png" alt="Photo" class="mx-auto lg:w-full lg:h-full animate-img">
             </div>
         </div>
 
         <div class="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="gallery-card relative group cursor-pointer reveal-up rounded-3xl div-big-animate">
+            <div class="gallery-card relative group cursor-pointer rounded-3xl div-big-animate">
                 <video class="w-full h-full object-cover aspect-video rounded-3xl" poster="images/Gallery/Video.png" preload="metadata" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime = 0;">
                     <source src="images/Gallery/your-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -321,7 +301,7 @@
                 </div>
             </div>
 
-            <div class="gallery-card relative group cursor-pointer reveal-up rounded-3xl div-big-animate">
+            <div class="gallery-card relative group cursor-pointer rounded-3xl div-big-animate">
                 <video class="w-full h-full object-cover aspect-video rounded-3xl" poster="images/Gallery/Video.png" preload="metadata" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime = 0;">
                     <source src="images/Gallery/your-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -336,7 +316,7 @@
                 </div>
             </div>
 
-            <div class="gallery-card relative group cursor-pointer reveal-up rounded-3xl div-big-animate">
+            <div class="gallery-card relative group cursor-pointer rounded-3xl div-big-animate">
                 <video class="w-full h-full object-cover aspect-video rounded-3xl" poster="images/Gallery/Video.png" preload="metadata" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime = 0;">
                     <source src="images/Gallery/your-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -351,7 +331,7 @@
                 </div>
             </div>
 
-            <div class="gallery-card relative group cursor-pointer reveal-up rounded-3xl div-big-animate">
+            <div class="gallery-card relative group cursor-pointer rounded-3xl div-big-animate">
                 <video class="w-full h-full object-cover aspect-video rounded-3xl" poster="images/Gallery/Video.png" preload="metadata" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime = 0;">
                     <source src="images/Gallery/your-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -366,7 +346,7 @@
                 </div>
             </div>
 
-            <div class="gallery-card relative group cursor-pointer reveal-up rounded-3xl div-big-animate">
+            <div class="gallery-card relative group cursor-pointer rounded-3xl div-big-animate">
                 <video class="w-full h-full object-cover aspect-video rounded-3xl" poster="images/Gallery/Video.png" preload="metadata" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime = 0;">
                     <source src="images/Gallery/your-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -381,7 +361,7 @@
                 </div>
             </div>
 
-            <div class="gallery-card relative group cursor-pointer reveal-up rounded-3xl div-big-animate">
+            <div class="gallery-card relative group cursor-pointer rounded-3xl div-big-animate">
                 <video class="w-full h-full object-cover aspect-video rounded-3xl" poster="images/Gallery/Video.png" preload="metadata" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime = 0;">
                     <source src="images/Gallery/your-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -399,55 +379,7 @@
     </div>
 </section>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // --- Year Toggle Logic ---
-        const buttons = document.querySelectorAll('.year-btn');
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                buttons.forEach(b => {
-                    b.classList.remove('active');
-                    b.classList.add('text-white');
-                });
-                btn.classList.add('active');
-                btn.classList.remove('text-white');
 
-                // Visual feedback for year change
-                const grid = document.querySelector('.gallery-grid');
-                grid.style.opacity = '0.3';
-                setTimeout(() => { grid.style.opacity = '1'; }, 200);
-            });
-        });
-
-        // --- Bulletproof Intersection Observer (for all pages) ---
-        const initRevealObserver = () => {
-            const observerOptions = {
-                threshold: 0.15
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-now');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            // Targets all elements with reveal class
-            document.querySelectorAll('.reveal-up').forEach(el => {
-                observer.observe(el);
-            });
-        };
-
-        // Safety check to ensure DOM is ready even if script is deferred
-        if (document.readyState === "complete" || document.readyState === "interactive") {
-            initRevealObserver();
-        } else {
-            window.addEventListener("DOMContentLoaded", initRevealObserver);
-        }
-    });
-</script>
 
 
 
@@ -684,5 +616,27 @@
   </div>
 
     <script src="js/animations.js" defer></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll('.year-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => {
+                    b.classList.remove('active');
+                    b.classList.add('text-white');
+                });
+                btn.classList.add('active');
+                btn.classList.remove('text-white');
+
+                const grid = document.querySelector('.gallery-grid');
+                grid.style.opacity = '0.3';
+                setTimeout(() => { grid.style.opacity = '1'; }, 200);
+            });
+        });
+    });
+</script>
+
+
 </body>
 </html>
