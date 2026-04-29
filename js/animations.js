@@ -41,6 +41,37 @@ const nav = document.getElementById('main-nav');
 
 
 
+
+  
+// animate-arrow-moving
+
+document.addEventListener("DOMContentLoaded", () => {
+  const observerOptions = {
+    root: null, 
+    threshold: 0.2
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const arrow = entry.target.querySelector('[class*="moving-arrow"]');
+        if (arrow) {
+          arrow.classList.add('animate-now');
+          observer.unobserve(entry.target);
+        }
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.path-container').forEach(container => {
+    observer.observe(container);
+  });
+});
+
+
+
+
+
 // plane animation hero section
 
 const plane = document.getElementById('plane');
@@ -64,6 +95,118 @@ if (plane && triggerZone) {
     planeObserver.observe(triggerZone);
     triggerZone.addEventListener('mouseenter', playFlight);
 }
+
+
+
+
+
+
+
+    // Image small to big Animation 
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll(".div-big-animate");
+
+      images.forEach((box) => {
+        const observer = new IntersectionObserver(([entry]) => {
+          if (!entry.isIntersecting) return;
+
+          box.animate(
+            [
+              { opacity: 0, transform: "translateY(100px) scale(.8) rotate(0deg)" },
+              { opacity: 1, transform: "translateY(-18px) scale(1.03) rotate(0deg)", offset: 0.75 },
+              { opacity: 1, transform: "translateY(0) scale(1) rotate(0deg)" }
+            ],
+            {
+              duration: 2500,
+              easing: "cubic-bezier(.22,1,.36,1)",
+              fill: "forwards"
+            }
+          );
+
+          observer.unobserve(box);
+        }, { threshold: 0.35 });
+
+        observer.observe(box);
+      });
+    });
+
+
+
+
+    // Image fade-out to fade-in Animation
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll(".div-fade-animate");
+
+      images.forEach((box) => {
+        const observer = new IntersectionObserver(([entry]) => {
+          if (!entry.isIntersecting) return;
+
+          box.animate(
+            [
+              { opacity: 0, transform: "scale(0.45) rotate(0deg)" },
+              { opacity: 1, transform: "scale(1.06) rotate(0deg)", offset: 0.75 },
+              { opacity: 1, transform: "scale(1) rotate(0deg)" }
+            ],
+            {
+              duration: 3000,
+              easing: "cubic-bezier(0.22,1,0.36,1)",
+              fill: "forwards"
+            }
+          );
+
+          observer.unobserve(box);
+        }, { threshold: 0.3 });
+
+        observer.observe(box);
+      });
+    });
+
+
+
+
+    // Image Gravity Animation
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".div-gravity-animate");
+      const section = document.querySelector(".div-gravity-animate").parentElement;
+
+      let played = false;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !played) {
+              played = true;
+
+              cards.forEach((card, index) => {
+                setTimeout(() => {
+                  card.animate(
+                    [
+                      { opacity: 0, transform: "translateY(-180px) scale(0.95)" },
+                      { opacity: 1, transform: "translateY(12px) scale(1.02)", offset: 0.75 },
+                      { opacity: 1, transform: "translateY(0) scale(1)" }
+                    ],
+                    {
+                      duration: 2500,
+                      easing: "cubic-bezier(0.25, 1, 0.5, 1)",
+                      fill: "forwards"
+                    }
+                  );
+                }, index * 300);
+              });
+            }
+          });
+        },
+        {
+          threshold: 0.3
+        }
+      );
+
+      observer.observe(section);
+    });
+
 
 
 
@@ -198,58 +341,66 @@ const getSwiperOptions = (container) => ({
 
 
 
-// button sithch logic
-  const domesticContainer = document.getElementById('domestic-section');
-  let domesticSwiper = new Swiper(".domesticSwiper", getSwiperOptions(domesticContainer));
+// Domestic and international tour button switch logic
 
-  let internationalSwiper;
-
-  function updatePagination(swiper) {
+function updatePagination(swiper) {
     const paginationContainer = document.getElementById('custom-pagination');
+    if (!paginationContainer || !swiper) return;
+
     const totalSteps = swiper.slides.length - Math.floor(swiper.params.slidesPerView) + 1;
     const current = swiper.activeIndex;
     
     paginationContainer.innerHTML = '';
     for (let i = 0; i < Math.max(totalSteps, 1); i++) {
-      const line = document.createElement('div');
-      line.className = `w-10 h-1.5 rounded-full transition-all duration-300 ${i === current ? 'bg-amber-700' : 'bg-gray-300'}`;
-      paginationContainer.appendChild(line);
+        const line = document.createElement('div');
+        line.className = `w-10 h-1.5 rounded-full transition-all duration-300 ${i === current ? 'bg-amber-700' : 'bg-gray-300'}`;
+        paginationContainer.appendChild(line);
     }
-  }
+}
 
+const domesticContainer = document.getElementById('domestic-section');
+let domesticSwiper;
+let internationalSwiper;
 
+if (domesticContainer) {
 
+    domesticSwiper = new Swiper(".domesticSwiper", getSwiperOptions(domesticContainer));
+    updatePagination(domesticSwiper);
+}
 
-  // Tab Switching Logic
-  const buttons = document.querySelectorAll('.tab-btn');
-  const sections = document.querySelectorAll('.content-section');
+const buttons = document.querySelectorAll('.tab-btn');
+const sections = document.querySelectorAll('.content-section');
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.getAttribute('data-target');
+if (buttons.length > 0) {
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-target');
+            const activeSection = document.getElementById(`${target}-section`);
 
+            if (!activeSection) return;
 
-      buttons.forEach(b => b.classList.remove('bg-[#1A1A1A]', 'text-white'));
-      buttons.forEach(b => b.classList.add('text-gray-900'));
-      btn.classList.add('bg-[#1A1A1A]', 'text-white');
+            buttons.forEach(b => b.classList.remove('bg-[#1A1A1A]', 'text-white'));
+            buttons.forEach(b => b.classList.add('text-gray-900'));
+            btn.classList.add('bg-[#1A1A1A]', 'text-white');
 
-      sections.forEach(s => s.classList.add('hidden'));
-      const activeSection = document.getElementById(`${target}-section`);
-      activeSection.classList.remove('hidden');
+            sections.forEach(s => s.classList.add('hidden'));
+            activeSection.classList.remove('hidden');
 
-      if (target === 'international') {
-        if (!internationalSwiper) {
-          internationalSwiper = new Swiper(".internationalSwiper", getSwiperOptions(activeSection));
-        } else {
-          internationalSwiper.update();
-          updatePagination(internationalSwiper);
-        }
-      } else {
-        domesticSwiper.update();
-        updatePagination(domesticSwiper);
-      }
+            if (target === 'international') {
+                if (!internationalSwiper) {
+                    internationalSwiper = new Swiper(".internationalSwiper", getSwiperOptions(activeSection));
+                } else {
+                    internationalSwiper.update();
+                    updatePagination(internationalSwiper);
+                }
+            } else if (domesticSwiper) {
+                domesticSwiper.update();
+                updatePagination(domesticSwiper);
+            }
+        });
     });
-  });
+}
+
 
 
 
@@ -399,6 +550,11 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
 
 
 
+
+  
+
+
+
  {/* Nav links move */}
 
   window.addEventListener('scroll', () => {
@@ -441,120 +597,6 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
       }
     });
   });
-
-
-
-
-
-
-
-    // Image Gravity Animation
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const cards = document.querySelectorAll(".animate-card");
-      const section = document.querySelector(".animate-card").parentElement;
-
-      let played = false;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !played) {
-              played = true;
-
-              cards.forEach((card, index) => {
-                setTimeout(() => {
-                  card.animate(
-                    [
-                      { opacity: 0, transform: "translateY(-180px) scale(0.95)" },
-                      { opacity: 1, transform: "translateY(12px) scale(1.02)", offset: 0.75 },
-                      { opacity: 1, transform: "translateY(0) scale(1)" }
-                    ],
-                    {
-                      duration: 2500,
-                      easing: "cubic-bezier(0.25, 1, 0.5, 1)",
-                      fill: "forwards"
-                    }
-                  );
-                }, index * 300);
-              });
-            }
-          });
-        },
-        {
-          threshold: 0.3
-        }
-      );
-
-      observer.observe(section);
-    });
-
-
-
-
-
-    // Image small to big Animation 
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const images = document.querySelectorAll(".img-animate-2");
-
-      images.forEach((box) => {
-        const observer = new IntersectionObserver(([entry]) => {
-          if (!entry.isIntersecting) return;
-
-          box.animate(
-            [
-              { opacity: 0, transform: "translateY(100px) scale(.8) rotate(0deg)" },
-              { opacity: 1, transform: "translateY(-18px) scale(1.03) rotate(0deg)", offset: 0.75 },
-              { opacity: 1, transform: "translateY(0) scale(1) rotate(0deg)" }
-            ],
-            {
-              duration: 2500,
-              easing: "cubic-bezier(.22,1,.36,1)",
-              fill: "forwards"
-            }
-          );
-
-          observer.unobserve(box);
-        }, { threshold: 0.35 });
-
-        observer.observe(box);
-      });
-    });
-
-
-
-
-    // Image fade-out to fade-in Animation
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const images = document.querySelectorAll(".img-animate");
-
-      images.forEach((box) => {
-        const observer = new IntersectionObserver(([entry]) => {
-          if (!entry.isIntersecting) return;
-
-          box.animate(
-            [
-              { opacity: 0, transform: "scale(0.45) rotate(0deg)" },
-              { opacity: 1, transform: "scale(1.06) rotate(0deg)", offset: 0.75 },
-              { opacity: 1, transform: "scale(1) rotate(0deg)" }
-            ],
-            {
-              duration: 3000,
-              easing: "cubic-bezier(0.22,1,0.36,1)",
-              fill: "forwards"
-            }
-          );
-
-          observer.unobserve(box);
-        }, { threshold: 0.3 });
-
-        observer.observe(box);
-      });
-    });
-
-
 
 
 
@@ -625,28 +667,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-// animate-arrow-moving
-
-document.addEventListener("DOMContentLoaded", () => {
-  const observerOptions = {
-    root: null, 
-    threshold: 0.2
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const arrow = entry.target.querySelector('[class*="moving-arrow"]');
-        if (arrow) {
-          arrow.classList.add('animate-now');
-          observer.unobserve(entry.target);
-        }
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.path-container').forEach(container => {
-    observer.observe(container);
-  });
-});

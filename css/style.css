@@ -60,6 +60,7 @@ body {
   offset-rotate: auto 180deg; 
   animation: travelPath 6s ease-in-out forwards;
   transform: rotate(310deg) translateY(10px);
+  animation-play-state: paused;
 }
 
 
@@ -104,6 +105,7 @@ body {
   offset-rotate: auto 180deg; 
   animation: travelPath 6s ease-in-out forwards;
   transform: rotate(310deg) translateY(10px);
+  animation-play-state: paused;
 }
 
 .moving-arrow-reverse path {
@@ -128,6 +130,7 @@ body {
   offset-path: path("M670.282 309.838C625.532 302.273 535.275 270.143 532.251 202.139C529.227 134.134 574.659 105.285 597.753 99.3605C622.022 94.4554 670.03 98.6079 667.906 154.458C667.175 159.75 662.314 170.827 648.72 172.801C631.728 175.269 595.565 201.378 462.174 100.805C420.025 56.9577 324.944 -13.3268 281.805 56.3157C238.667 125.958 172.192 165.639 144.346 176.775C93.5216 200.326 -6.34687 197.946 0.777273 0.0178699");
   offset-rotate: auto 360deg;
   animation: travelPathThree 6s ease-in-out forwards;
+  animation-play-state: paused;
 }
 
 
@@ -153,7 +156,7 @@ body {
   offset-path: path("M670.282 309.838C625.532 302.273 535.275 270.143 532.251 202.139C529.227 134.134 574.659 105.285 597.753 99.3605C622.022 94.4554 670.03 98.6079 667.906 154.458C667.175 159.75 662.314 170.827 648.72 172.801C631.728 175.269 595.565 201.378 462.174 100.805C420.025 56.9577 324.944 -13.3268 281.805 56.3157C238.667 125.958 172.192 165.639 144.346 176.775C93.5216 200.326 -6.34687 197.946 0.777273 0.0178699");
   offset-rotate: auto 180deg; 
   animation: travelPathTwo 6s ease-in-out forwards;
-  
+  animation-play-state: paused;
   transform: rotate(310deg) translateY(10px);
 }
 
@@ -168,16 +171,6 @@ body {
   100% { offset-distance: 100%; opacity: 1; }
 }
 
-
-
-
-/* Update both .moving-arrow and .moving-arrow-two */
-.moving-arrow, 
-.moving-arrow-two, 
-.moving-arrow-reverse {
-  animation: travelPath 6s ease-in-out forwards;
-  animation-play-state: paused;
-}
 
 .animate-now {
   animation-play-state: running !important;
@@ -283,12 +276,6 @@ body {
 
 
 
-
-  .animate-card {
-    opacity: 0;
-    transform: translateY(-180px) scale(0.95);
-  }
-
   .content-animate .custom-h,
   .content-animate .custom-p,
   .content-animate .custom-item,
@@ -329,6 +316,9 @@ body {
 .animate-container:hover {
   transform: translateY(-5px);
 }
+
+
+/* use in image class */
 
 .animate-img {
   overflow: hidden;
@@ -387,6 +377,8 @@ body {
 .no-js .reveal-fade {
   opacity: 1;
 }
+
+
 
 
 
