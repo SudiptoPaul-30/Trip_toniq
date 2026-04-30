@@ -17,8 +17,8 @@ Estimate End Date -- 08/05/2026
 03/05/2026 - ##
 04/05/2026 - Tour, Booking & Payment Pages        -- 8 hours - Pending
 05/05/2026 - Domestic & International Tour Pages  -- 8 hours - Pending
-06/05/2026 - Aim to Complete Dashboard 4 pages    -- 8 hours - Pending
-07/05/2026 - Aim to Complete Dashboard 3 pages    -- 8 hours - Pending
+06/05/2026 - Aim to Complete Dashboard 5 pages    -- 8 hours - Pending
+07/05/2026 - Dashboard 2 pages, Create 3 Modal    -- 8 hours - Pending
 08/05/2026 - Code Structure and Error Fixing      -- 8 hours - Pending    (Total 48 hours Remaining)
 
 
@@ -57,5 +57,5 @@ Estimate End Date -- 12/05/2026
 08/05/2026 - Aim to Complete Dashboard 2 pages    -- 6 hours - Pending,   (Framers 2 hours)
 09/05/2026 - ##
 10/05/2026 - ##
-11/05/2026 - Code Structure Fixing                -- 6 hours - Pending,   (Framers 2 hours)
-12/05/2026 - Error Fixing                         -- 6 hours - Pending,   (Framers 2 hours)    (Total 48 hours Remaining)
+11/05/2026 - 3 Modal Create and Error Fixing      -- 6 hours - Pending,   (Framers 2 hours)
+12/05/2026 - Code Structure Fixing                -- 6 hours - Pending,   (Framers 2 hours)    (Total 48 hours Remaining)
